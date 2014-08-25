@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="static/js/jquery.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.min.js" rel="stylesheet"></script>
+    <title>brainwu</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">随笔</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">Blog</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100006836388062">Facebook</a></li>
+            <li><a href="http://weibo.com/1793804425/profile?topnav=1&wvr=5&user=1">Sina</a></li>
+            <li><a href="https://twitter.com/Brain_Wu">Twitter</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid" style="padding-top: 70px;">
+    <div class="row">
+        <div class="col-sm-9" style="padding-left: 110px;">
+            <div class="list-group">
+                <a href="#" class="list-group-item disabled">
+                    Blog
+                </a>
+                {{range $key, $val := .articles}}
+                    <a href="#" class="list-group-item">{{$val.Title}}</a>
+                {{end}}
+            </div>
+        </div>
+        <div class="col-sm-3" style="padding-left: 100px;">
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>About</h4>
+                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
+                    fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Archives</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">March 2014</a></li>
+                    <li><a href="#">February 2014</a></li>
+                    <li><a href="#">January 2014</a></li>
+                    <li><a href="#">December 2013</a></li>
+                    <li><a href="#">November 2013</a></li>
+                    <li><a href="#">October 2013</a></li>
+                    <li><a href="#">September 2013</a></li>
+                    <li><a href="#">August 2013</a></li>
+                    <li><a href="#">July 2013</a></li>
+                    <li><a href="#">June 2013</a></li>
+                    <li><a href="#">May 2013</a></li>
+                    <li><a href="#">April 2013</a></li>
+                </ol>
+            </div>
+            <div class="sidebar-module">
+                <h4>Elsewhere</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
