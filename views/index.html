@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/index.css" rel="stylesheet">
     <script type="text/javascript" src="static/js/jquery.min.js"></script>
     <script src="static/bootstrap/js/bootstrap.min.js" rel="stylesheet"></script>
     <title>brainwu</title>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" style="opacity: .9;background-color: #fff;" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">随笔</a>
@@ -23,19 +24,25 @@
 </nav>
 <div class="container-fluid" style="padding-top: 70px;">
     <div class="row">
-        <div class="col-sm-9" style="padding-left: 110px;">
-            <div class="list-group">
-                <a href="#" class="list-group-item disabled">
-                    Blog
-                </a>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Blog</h3>
+                </div>
+            <ul class="list-group">
                 {{range $key, $val := .articles}}
-                    <a href="#" class="list-group-item">{{$val.Title}}</a>
+                <li class="list-group-item ls" >
+                    <a href="#" >{{$val.Title}}</a>
+                </li>
                 {{end}}
+            </ul>
             </div>
         </div>
         <div class="col-sm-3" style="padding-left: 100px;">
             <div class="sidebar-module sidebar-module-inset">
                 <h4>About</h4>
+
                 <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
                     fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
             </div>
