@@ -4,7 +4,7 @@ import (
 	"testing"
 	. "github.com/smartystreets/goconvey/convey"
 	_ "github.com/go-sql-driver/mysql"
-	"brainblog/models"
+	"github.com/brainwu/brainblog/models"
 )
 
 func Test_Insert(t *testing.T) {

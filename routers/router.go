@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"brainblog/controllers"
+	"github.com/brainwu/brainblog/controllers"
 	"github.com/astaxie/beego"
 )
 

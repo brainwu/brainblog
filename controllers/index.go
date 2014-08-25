@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	"brainblog/models"
+	"github.com/brainwu/brainblog/models"
 )
 
 type IndexController struct {

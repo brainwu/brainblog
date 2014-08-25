@@ -2,7 +2,7 @@ package tests
 
 import (
 	"testing"
-	"brainblog/models"
+	"github.com/brainwu/brainblog/models"
 	. "github.com/smartystreets/goconvey/convey"
 	_ "github.com/go-sql-driver/mysql"
 )
