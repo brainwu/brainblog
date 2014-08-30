@@ -1,12 +1,11 @@
-package controllers
+package blog
 
 import (
-	"github.com/astaxie/beego"
 	"github.com/brainwu/brainblog/models"
 )
 
 type IndexController struct {
-	beego.Controller
+	baseController
 }
 
 func (this *IndexController) Get() {
@@ -15,3 +14,4 @@ func (this *IndexController) Get() {
 	this.Data["articles"] = articles
 	this.TplNames = "index.html"
 }
+

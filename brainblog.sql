@@ -1,5 +1,9 @@
-drop table IF exists `blog_article`;
-drop table IF exists `blog_user`;
+drop table if exists `blog_tag_article`;
+drop table if exists `blog_article`;
+drop table if exists `blog_user`;
+drop table if exists `blog_option`;
+drop table if exists `blog_tag`;
+
 
 CREATE TABLE `blog_user` (
   `id` int unsigned NOT NULL auto_increment,
@@ -34,7 +38,7 @@ create table `blog_article` (
   `update_time` datetime default '1992-12-15 00:00:00',
   `reply_num` int default 0,
   `click_num` int default 0,
-  `tags` varchar(140) default '',
+  `tags_str` varchar(140) default '',
   PRIMARY KEY  (`id`),
   foreign key(user_id) references blog_user(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -53,3 +57,37 @@ insert into `blog_article` values(6, 1, 'brainwu', 'To be NO.1', 'http://www.bai
 '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
 insert into `blog_article` values(7, 1, 'brainwu', 'I have a dream.', 'http://www.baidu.com',
 '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
+
+create table `blog_option` (
+  `id` int unsigned not null auto_increment,
+  `name` varchar(30) not null default '',
+  `value` text not null,
+  primary key (`id`),
+  unique key `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into `blog_option` values(1, 'about_me', '90后 程序猿 非单身');
+insert into `blog_option` values(2, 'facebook', 'https://www.facebook.com/profile.php?id=100006836388062');
+insert into `blog_option` values(3, 'sina', 'http://weibo.com/1793804425/profile?topnav=1&wvr=5&user=1');
+insert into `blog_option` values(4, 'twitter', 'https://twitter.com/Brain_Wu');
+
+
+create table `blog_tag` (
+  `id` int unsigned not null auto_increment,
+  `name` varchar(15) not null default '',
+  `Count` int not null default 0 COMMENT '使用当前标签的文章数量',
+  primary key  (`id`),
+  unique key `name` (`name`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into `blog_tag` values(1, 'android', 0);
+insert into `blog_tag` values(2, 'golang', 0);
+
+create table `blog_tag_article` (
+  `id` int unsigned not null auto_increment,
+  `tag_id` int unsigned not null ,
+  `article_id` int unsigned not null ,
+  primary key (`id`),
+  foreign key(article_id) references blog_article(id),
+  foreign key(tag_id) references blog_tag(id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -16,9 +16,9 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="#">Blog</a></li>
-            <li><a href="https://www.facebook.com/profile.php?id=100006836388062">Facebook</a></li>
-            <li><a href="http://weibo.com/1793804425/profile?topnav=1&wvr=5&user=1">Sina</a></li>
-            <li><a href="https://twitter.com/Brain_Wu">Twitter</a></li>
+            <li><a href="{{.options.facebook}}">Facebook</a></li>
+            <li><a href="{{.options.sina}}">Sina</a></li>
+            <li><a href="{{.options.twitter}}">Twitter</a></li>
         </ul>
     </div>
 </nav>
@@ -39,12 +39,10 @@
             </ul>
             </div>
         </div>
-        <div class="col-sm-3" style="padding-left: 100px;">
+        <div class="col-sm-3" style="padding-left: 50px;">
             <div class="sidebar-module sidebar-module-inset">
-                <h4>About</h4>
-
-                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
-                    fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                <h4>博主</h4>
+                <p>{{.options.about_me}}</p>
             </div>
             <div class="sidebar-module">
                 <h4>Archives</h4>

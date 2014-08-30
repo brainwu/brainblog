@@ -6,17 +6,18 @@ import (
 )
 
 type Article struct {
-	Id int
-	UserId int
-	UserName string
-	Title string
-	Url string
-	Content string
+	Id         int
+	User       *User `orm:"rel(fk)"`
+	UserName   string
+	Title      string
+	Url        string
+	Content    string
 	CreateTime time.Time
 	UpdateTime time.Time
-	ReplyNum int
-	ClickNum int
-	Tags string
+	ReplyNum   int
+	ClickNum   int
+	TagsStr    string
+	Tags 	   []*Tag `orm:"rel(m2m);rel_through(github.com/brainwu/brainblog/models.TagArticle)"` // ManyToMany relation
 }
 
 func (a *Article) TableName() string {
@@ -51,4 +52,23 @@ func (a *Article) List() []Article {
 	var articles []Article
 	orm.NewOrm().QueryTable(a).All(&articles)
 	return articles
+}
+
+
+func (a *Article) Insert() error {
+	o := orm.NewOrm()
+	if err := o.Begin(); err != nil {
+		return err
+	}
+	if _, err := o.Insert(a); err != nil {
+		o.Rollback()
+		return err
+	}
+	if len(a.Tags) != 0 {
+		if _, err := o.QueryM2M(a, "Tags").Add(a.Tags); err != nil {
+			o.Rollback()
+			return err
+		}
+	}
+	return o.Commit()
 }

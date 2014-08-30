@@ -63,7 +63,7 @@ func (u *User) QueryByAccount() error {
 	return orm.NewOrm().QueryTable(u).Filter("Account", u.Account).One(u)
 }
 
-func (this *User)TableName() string {
+func (u *User)TableName() string {
 	return TableName("user")
 }
 
