@@ -4,7 +4,7 @@ import (
 	"github.com/brainwu/brainblog/controllers/blog"
 	"github.com/brainwu/brainblog/controllers/manage"
 
-	"github.com/astaxie/beego"
+	beego "gopkg.in/astaxie/beego.v1"
 )
 
 func init() {

@@ -2,7 +2,7 @@ package models
 
 import (
 	"time"
-	"github.com/astaxie/beego/orm"
+	"gopkg.in/astaxie/beego.v1/orm"
 )
 
 type Article struct {

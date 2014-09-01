@@ -66,7 +66,7 @@ create table `blog_option` (
   unique key `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into `blog_option` values(1, 'about_me', '90后 程序猿 非单身');
+insert into `blog_option` values(1, 'about_me', '90后 Developer 非单身');
 insert into `blog_option` values(2, 'facebook', 'https://www.facebook.com/profile.php?id=100006836388062');
 insert into `blog_option` values(3, 'sina', 'http://weibo.com/1793804425/profile?topnav=1&wvr=5&user=1');
 insert into `blog_option` values(4, 'twitter', 'https://twitter.com/Brain_Wu');

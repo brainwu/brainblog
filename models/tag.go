@@ -1,6 +1,6 @@
 package models
 
-import "github.com/astaxie/beego/orm"
+import "gopkg.in/astaxie/beego.v1/orm"
 
 import (
 )

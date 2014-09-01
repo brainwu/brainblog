@@ -1,7 +1,7 @@
 package blog
 
 import (
-	"github.com/astaxie/beego"
+	beego "gopkg.in/astaxie/beego.v1"
 	"github.com/brainwu/brainblog/models"
 )
 

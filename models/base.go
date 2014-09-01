@@ -2,8 +2,8 @@ package models
 
 import (
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/astaxie/beego/orm"
-	"github.com/astaxie/beego"
+	"gopkg.in/astaxie/beego.v1/orm"
+	beego "gopkg.in/astaxie/beego.v1"
 	"fmt"
 	"runtime"
 	"path/filepath"

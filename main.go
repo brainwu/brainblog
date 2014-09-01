@@ -3,10 +3,10 @@ package main
 import (
 	_ "github.com/brainwu/brainblog/routers"
 
-	"github.com/astaxie/beego"
+	beego "gopkg.in/astaxie/beego.v1"
 )
 
 func main() {
-	beego.SetStaticPath("/static","views/static")
+	beego.SetStaticPath("/static", "views/static")
 	beego.Run()
 }
