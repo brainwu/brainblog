@@ -7,9 +7,10 @@ import (
 )
 
 func main() {
-//	Insert()
-//	Update()
+	Insert()
+	Update()
 	Read()
+//	Delete()
 }
 
 func Insert() {
@@ -36,7 +37,7 @@ func Update() {
 	var tags []*models.Tag = make([]*models.Tag, 2)
 	tags[0] = &models.Tag{Id:1}
 	tags[1] = &models.Tag{Id:2}
-	var a *models.Article = &models.Article{Id: 12}
+	var a *models.Article = &models.Article{Id: 8}
 	fmt.Println(a.Read("Id"))
 	a.Tags = tags
 	a.Update()
@@ -44,9 +45,13 @@ func Update() {
 
 
 func Read() {
-	var a *models.Article = &models.Article{Id: 12}
+	var a *models.Article = &models.Article{Id: 8}
 	fmt.Println(a.Read("Id"))
 	fmt.Println(a.GetTags())
-	fmt.Println(a.Tags[0])
-	fmt.Println(a.Tags[1])
+	fmt.Println(len(a.Tags))
+}
+
+func Delete() {
+	var a *models.Article = &models.Article{Id: 8}
+	fmt.Println(a.Delete())
 }

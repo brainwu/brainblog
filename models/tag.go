@@ -44,7 +44,7 @@ func (t *Tag) Read(fields ...string) error {
 //获取该标签对应的文章
 func (t *Tag) GetArticles() error {
 	o := orm.NewOrm()
-	rs := o.Raw("select article_id from blog_tag_article where tag_id=?", t.Id)
+	rs := o.Raw("select article_id from " + (&TagArticle{}).TableName() +" where tag_id=?", t.Id)
 	var maps []orm.Params
 	if _, err := rs.Values(&maps); err != nil {
 		return err

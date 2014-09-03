@@ -13,5 +13,5 @@ func getArticles() {
 	var t *models.Tag = &models.Tag{Id:1}
 	t.Read("Id")
 	t.GetArticles()
-	fmt.Println(t.Articles)
+	fmt.Println(len(t.Articles))
 }
