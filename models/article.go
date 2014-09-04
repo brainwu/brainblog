@@ -29,13 +29,25 @@ func (a *Article) Query() orm.QuerySeter {
 	return orm.NewOrm().QueryTable(a)
 }
 
+//Delete delete an article and delete tag_article‘s relationship in blog_tag_article table.
 func (a *Article) Delete() error {
-	if _, err := orm.NewOrm().Delete(a); err != nil {
+	o := orm.NewOrm()
+	if err := o.Begin(); err != nil {
 		return err
 	}
-	return nil
+	if _, err := o.QueryM2M(a, "Tags").Clear(); err != nil {
+		return err
+	}
+	if _, err := o.Delete(a); err != nil {
+		o.Rollback();
+		return err
+	}
+	return o.Commit()
 }
 
+//Read read an article by specified field without Article.Tags.
+//Such as --> a := Article{Id:1} a.Read("Id").
+//It's equivalent to “select * from blog_article where id = 1”.
 func (a *Article) Read(fields ...string) error {
 	o := orm.NewOrm()
 	if err := o.Read(a, fields...); err != nil {
@@ -44,10 +56,10 @@ func (a *Article) Read(fields ...string) error {
 	return nil
 }
 
-//将文章所对应的tag列表注入article中
-func (a *Article)GetTags() error{
+//GetTags get tags of article.
+func (a *Article) GetTags() error {
 	o := orm.NewOrm()
-	rs := o.Raw("select tag_id from blog_tag_article where article_id=?", a.Id)
+	rs := o.Raw("select tag_id from "+(&TagArticle{}).TableName()+" where article_id=?", a.Id)
 	var maps []orm.Params
 	if _, err := rs.Values(&maps); err != nil {
 		return err
@@ -75,11 +87,10 @@ func (a *Article) Update(fields ...string) error {
 		o.Rollback()
 		return err
 	}
-
-	//更新中间表
+	qm2 := o.QueryM2M(a, "Tags")
+	qm2.Clear()
+	//update blog_tag_article table
 	if len(a.Tags) != 0 {
-		qm2 := o.QueryM2M(a, "Tags")
-		qm2.Clear()
 		qm2.Add(a.Tags)
 	}
 	return o.Commit()
@@ -97,7 +108,6 @@ func (a *Article) Insert() error {
 		return err
 	}
 	if _, err := o.Insert(a); err != nil {
-		o.Rollback()
 		return err
 	}
 	if len(a.Tags) != 0 {
