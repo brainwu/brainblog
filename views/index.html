@@ -30,18 +30,19 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Blog</h3>
                 </div>
-            <ul class="list-group">
-                {{range $key, $val := .articles}}
-                <li class="list-group-item ls" >
-                    <a href="#" >{{$val.Title}}</a>
-                </li>
-                {{end}}
-            </ul>
+                <ul class="list-group">
+                    {{range $key, $val := .articles}}
+                    <li class="list-group-item ls">
+                        <a href="#">{{$val.Title}}</a>
+                    </li>
+                    {{end}}
+                </ul>
             </div>
         </div>
         <div class="col-sm-3" style="padding-left: 50px;">
             <div class="sidebar-module sidebar-module-inset">
                 <h4>博主</h4>
+
                 <p>{{.options.about_me}}</p>
             </div>
             <div class="sidebar-module">
