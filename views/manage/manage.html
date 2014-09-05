@@ -14,25 +14,31 @@
             <a class="navbar-brand" href="#" style="color: #fff;">后台管理</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Brainwu</a></li>
+            <li><a href="#">{{.name}}</a></li>
             <li><a href="">Sign out</a></li>
         </ul>
     </div>
 </nav>
 <div class="container" style="padding-top: 70px;">
     <div class="row">
-        <div class="col-sm-2" style="background-color: #aabbcc; height: 1000px;">
+        <div class="col-sm-2">
+            <div class="well">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="disabled"><a>内容管理</a></li>
+                    <li><a href="">发布文章</a></li>
+                    <li><a href="">文章列表</a></li>
+                    <li><a href="">标签管理</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="col-sm-8" style="padding-left:50px; height: 1000px;">
-            <div class="input-group " style="width: 600px;">
-                <span class="input-group-addon" style="width: 100px;">标题</span>
-                <input type="text" class="form-control"/>
-            </div> <br>
-            <div class="input-group" style="width: 600px;">
-                <span class="input-group-addon" style="width: 100px;">发布时间</span>
-                <input type="text" class="form-control"/>
-            </div> <br>
+        <div class="col-sm-8" style="padding-left:50px;">
+            {{.LayoutContent}}
         </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        Copyright &copy; 2014 BrainWu 京ICP备14042616号
     </div>
 </div>
 </body>

@@ -25,7 +25,7 @@ CREATE TABLE `blog_user` (
   UNIQUE KEY `account` (`account`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into `blog_user` (name, account, password) values('brainwu', 'admin', 'admin');
+insert into `blog_user` (name, account, password) values('BrainWu', 'admin', 'admin');
 
 create table `blog_article` (
   `id` int unsigned not null auto_increment,

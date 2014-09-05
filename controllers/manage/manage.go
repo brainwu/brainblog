@@ -5,5 +5,7 @@ type ManageController struct {
 }
 
 func (mc *ManageController) Manage() {
-	mc.TplNames="manage/manage.html"
+	mc.Data["name"] = "Brain Wu"
+	mc.Layout = "manage/manage.html"
+	mc.TplNames="manage/send_article.html"
 }

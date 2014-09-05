@@ -12,9 +12,12 @@ type baseController struct {
 	beego.Controller
 	actionName     string
 	controllerName string
+	options        map[string]string
 }
 
 func (base *baseController) Prepare() {
+	base.options = models.GetOptions()
+	base.Data["options"] = base.options
 	base.controllerName, base.actionName = base.GetControllerAndAction()
 	base.auth()
 }
