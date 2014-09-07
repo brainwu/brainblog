@@ -25,7 +25,7 @@ CREATE TABLE `blog_user` (
   UNIQUE KEY `account` (`account`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into `blog_user` (name, account, password) values('BrainWu', 'admin', 'admin');
+insert into `blog_user` (name, account, password) values('BrainWu', 'brainwu', 'brainwu1215');
 
 create table `blog_article` (
   `id` int unsigned not null auto_increment,
@@ -43,21 +43,21 @@ create table `blog_article` (
   UNIQUE KEY `title` (`title`),
   foreign key(user_id) references blog_user(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-insert into `blog_article` values(1, 1, 'brainwu', 'The five things make go fast', '2014/08/25/The five things make go fast',
-'<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
-insert into `blog_article` values(2, 1, 'brainwu', 'Go interface and nil', '2014/08/25/Go interface and nil',
-'<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
-insert into `blog_article` values(3, 1, 'brainwu', 'Go reflect', '2014/08/25/Go reflect',
-'<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
-insert into `blog_article` values(4, 1, 'brainwu', 'Junit', '2014/08/25/Junit',
-'<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
-insert into `blog_article` values(5, 1, 'brainwu', 'Hello Girl', '2014/08/25/Hello Girl',
-'<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
-insert into `blog_article` values(6, 1, 'brainwu', 'To be NO.1', '2014/08/25/To be NO.1',
-'<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
-insert into `blog_article` values(7, 1, 'brainwu', 'I have a dream.', '2014/08/25/I have a dream',
-'<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
+--
+-- insert into `blog_article` values(1, 1, 'brainwu', 'The five things make go fast', '2014/08/25/The five things make go fast',
+-- '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
+-- insert into `blog_article` values(2, 1, 'brainwu', 'Go interface and nil', '2014/08/25/Go interface and nil',
+-- '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
+-- insert into `blog_article` values(3, 1, 'brainwu', 'Go reflect', '2014/08/25/Go reflect',
+-- '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
+-- insert into `blog_article` values(4, 1, 'brainwu', 'Junit', '2014/08/25/Junit',
+-- '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
+-- insert into `blog_article` values(5, 1, 'brainwu', 'Hello Girl', '2014/08/25/Hello Girl',
+-- '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
+-- insert into `blog_article` values(6, 1, 'brainwu', 'To be NO.1', '2014/08/25/To be NO.1',
+-- '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
+-- insert into `blog_article` values(7, 1, 'brainwu', 'I have a dream.', '2014/08/25/I have a dream',
+-- '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
 
 create table `blog_option` (
   `id` int unsigned not null auto_increment,
@@ -80,9 +80,9 @@ create table `blog_tag` (
   primary key  (`id`),
   unique key `name` (`name`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-insert into `blog_tag` values(1, 'android', 0);
-insert into `blog_tag` values(2, 'golang', 0);
+--
+-- insert into `blog_tag` values(1, 'android', 0);
+-- insert into `blog_tag` values(2, 'golang', 0);
 
 create table `blog_tag_article` (
   `id` int unsigned not null auto_increment,
