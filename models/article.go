@@ -4,6 +4,7 @@ import (
 	"gopkg.in/astaxie/beego.v1/orm"
 	"time"
 	"strconv"
+	"html/template"
 )
 
 type Article struct {
@@ -12,7 +13,7 @@ type Article struct {
 	UserName   string
 	Title      string
 	Url        string
-	Content    string
+	Content    template.HTML
 	CreateTime time.Time
 	UpdateTime time.Time
 	ReplyNum   int

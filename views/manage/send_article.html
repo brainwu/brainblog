@@ -1,17 +1,24 @@
-<div class="input-group " style="width: 600px;">
-    <span class="input-group-addon" style="width: 100px;">标题</span>
-    <input type="text" class="form-control"/>
-</div>
-<br>
-<div class="input-group" style="width: 600px;">
-    <span class="input-group-addon" style="width: 100px;">发布时间</span>
-    <input type="text" class="form-control"/>
-</div>
-<br>
-<div>
-    <script id="editor" type="text/plain" style="width:900px;height:500px;"></script>
-</div>
-<br>
+<fieldset>
+    <legend style="width:900px;"><h2>发布文章</h2></legend>
+    {{if .errMsg}}
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{.errMsg}}
+    </div>
+    {{end}}
+    <form action="/manage/article" method="post">
+        <div class="input-group " style="width: 600px;">
+            <span class="input-group-addon" style="width: 100px;">标题</span>
+            <input id="title" name="title" type="text" class="form-control"/>
+        </div>
+        <br>
+        <div>
+            <script id="editor" name="content" type="text/plain" style="width:900px;height:500px;"></script>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-default">发布</button>
+    </form>
+</fieldset>
 
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <script type="text/javascript" charset="utf-8" src="../static/ueditor/ueditor.config.js"></script>
@@ -21,4 +28,16 @@
 <script type="text/javascript" charset="utf-8" src="../static/ueditor/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript">
     var ue = UE.getEditor('editor');
+//    function post() {
+//        var sContent = UE.getEditor('editor').getContent();
+//        var sTitle = document.getElementById('title').value;
+//        if (sTitle.length == 0) {
+//            alert("标题不能为空");
+//            return;
+//        }
+//        if (sContent.length == 0) {
+//            alert("内容不能为空");
+//            return;
+//        }
+//    }
 </script>

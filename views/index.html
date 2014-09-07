@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="static/css/index.css" rel="stylesheet">
-    <script type="text/javascript" src="static/js/jquery.min.js"></script>
-    <script src="static/bootstrap/js/bootstrap.min.js" rel="stylesheet"></script>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/index.css" rel="stylesheet">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js" rel="stylesheet"></script>
     <title>brainwu</title>
 </head>
 <body>
@@ -33,7 +33,7 @@
                 <ul class="list-group">
                     {{range $key, $val := .articles}}
                     <li class="list-group-item ls">
-                        <a href="#">{{$val.Title}}</a>
+                        <a href="/articles/{{$val.Url}}">{{$val.Title}}</a>
                     </li>
                     {{end}}
                 </ul>
@@ -42,7 +42,6 @@
         <div class="col-sm-3" style="padding-left: 50px;">
             <div class="sidebar-module sidebar-module-inset">
                 <h4>博主</h4>
-
                 <p>{{.options.about_me}}</p>
             </div>
             <div class="sidebar-module">
@@ -71,6 +70,12 @@
                 </ol>
             </div>
         </div>
+    </div>
+</div>
+<br>
+<div class="footer">
+    <div class="container">
+        Copyright &copy; 2014 BrainWu 京ICP备14042616号
     </div>
 </div>
 </body>

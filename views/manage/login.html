@@ -29,12 +29,6 @@
     <form role="form" method="post">
         <fieldset>
             <legend>后台管理</legend>
-            {{if .errMsg}}
-            <div class="alert alert-danger">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                {{.errMsg}}
-            </div>
-            {{end}}
             <div class="form-group" style="width: 300px;">
                 <label for="account" class="sr-only">账号 :</label>
                 <input type="text" class="form-control" id="account" name="account" placeholder="账号 :">

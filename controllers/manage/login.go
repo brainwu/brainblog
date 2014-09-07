@@ -53,3 +53,13 @@ func (l *LoginController) Login() {
 		l.Data["errMsg"] = "密码错误或者账号未注册"
 	}
 }
+
+func (l *LoginController) Logout() {
+	//clear cookie value
+	var cookie http.Cookie = http.Cookie{
+		Name:    "token",
+		Value:   "",
+	}
+	l.Ctx.ResponseWriter.Header().Add("Set-Cookie", cookie.String())
+	l.Ctx.Redirect(302, "/manage")
+}

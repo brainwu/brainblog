@@ -40,22 +40,23 @@ create table `blog_article` (
   `click_num` int default 0,
   `tags_str` varchar(140) default '',
   PRIMARY KEY  (`id`),
+  UNIQUE KEY `title` (`title`),
   foreign key(user_id) references blog_user(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into `blog_article` values(1, 1, 'brainwu', 'The five things make go fast', 'http://www.baidu.com',
+insert into `blog_article` values(1, 1, 'brainwu', 'The five things make go fast', '2014/08/25/The five things make go fast',
 '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
-insert into `blog_article` values(2, 1, 'brainwu', 'Go interface and nil', 'http://www.baidu.com',
+insert into `blog_article` values(2, 1, 'brainwu', 'Go interface and nil', '2014/08/25/Go interface and nil',
 '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
-insert into `blog_article` values(3, 1, 'brainwu', 'Go reflect', 'http://www.baidu.com',
+insert into `blog_article` values(3, 1, 'brainwu', 'Go reflect', '2014/08/25/Go reflect',
 '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
-insert into `blog_article` values(4, 1, 'brainwu', 'Junit', 'http://www.baidu.com',
+insert into `blog_article` values(4, 1, 'brainwu', 'Junit', '2014/08/25/Junit',
 '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
-insert into `blog_article` values(5, 1, 'brainwu', 'Hello Girl', 'http://www.baidu.com',
+insert into `blog_article` values(5, 1, 'brainwu', 'Hello Girl', '2014/08/25/Hello Girl',
 '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
-insert into `blog_article` values(6, 1, 'brainwu', 'To be NO.1', 'http://www.baidu.com',
+insert into `blog_article` values(6, 1, 'brainwu', 'To be NO.1', '2014/08/25/To be NO.1',
 '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
-insert into `blog_article` values(7, 1, 'brainwu', 'I have a dream.', 'http://www.baidu.com',
+insert into `blog_article` values(7, 1, 'brainwu', 'I have a dream.', '2014/08/25/I have a dream',
 '<p>Java当中有instanceof这样的关键字判断类型 Go当中自然也有相应的方法来判断类型&nbsp;</p>','2014-08-25 06:00:00', '2014-08-25 06:00:00', 0, 0, '');
 
 create table `blog_option` (

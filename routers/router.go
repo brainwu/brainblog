@@ -8,11 +8,16 @@ import (
 )
 
 func init() {
-	beego.Router("/", &blog.IndexController{})
-
 	ns := beego.NewNamespace("/manage",
 		beego.NSRouter("/", &manage.ManageController{}, "*:Manage"),
+		beego.NSNamespace("/article",
+			beego.NSRouter("/", &manage.ArticleController{}),
+			beego.NSRouter("/list", &manage.ArticleController{}, "*:List"),
+		),
 		beego.NSRouter("/login", &manage.LoginController{}, "*:Login"),
+		beego.NSRouter("/logout", &manage.LoginController{}, "*:Logout"),
 	)
 	beego.AddNamespace(ns)
+	beego.Router("/articles/*", &blog.IndexController{}, "get:GetArticle")
+	beego.Router("/", &blog.IndexController{})
 }

@@ -18,6 +18,7 @@ type baseController struct {
 func (base *baseController) Prepare() {
 	base.options = models.GetOptions()
 	base.Data["options"] = base.options
+	base.Data["name"] = "Brain Wu"
 	base.controllerName, base.actionName = base.GetControllerAndAction()
 	base.auth()
 }
@@ -32,11 +33,27 @@ func (base *baseController) auth() {
 	}
 }
 
+//获取当前操作用户的uid
+func (base *baseController) GetUid() string {
+	cookie, _ := base.Ctx.Request.Cookie("token")
+	if cookie != nil {
+		token := cookie.Value
+		arr := strings.Split(token, "|")
+		uid := arr[0]
+		return uid
+	} else {
+		return ""
+	}
+}
+
 func (base *baseController) IsCookieValid() bool {
 	cookie, _ := base.Ctx.Request.Cookie("token")
 	if cookie != nil {
 		token := cookie.Value
 		arr := strings.Split(token, "|")
+		if len(arr) < 2 {
+			return false
+		}
 		uid, reqMd5Pass := arr[0], arr[1]
 		var user *models.User
 		if iid, err := strconv.Atoi(uid); err != nil {

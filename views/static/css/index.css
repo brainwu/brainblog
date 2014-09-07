@@ -8,3 +8,10 @@ body{
 li.ls:hover {
     background-color: #eee;
 }
+.footer {
+    border-top: 1px solid #ddd;
+    color: #ddd;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 0;
+}
