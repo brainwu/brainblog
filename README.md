@@ -11,4 +11,4 @@
 * 执行mysql -u root -p -D brainblog < brainblog.sql
 * go run main.go
 * http://localhost/manage 登录到后台
-* 账号密码都是admin
+* 账号密码都是admin 
