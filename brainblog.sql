@@ -31,7 +31,7 @@ create table `blog_article` (
   `id` int unsigned not null auto_increment,
   `user_id` int unsigned not null ,
   `user_name` varchar(15) not null,
-  `title` varchar(30) not null,
+  `title` varchar(140) not null,
   `url` varchar(140) not null,
   `content` text not null,
   `create_time` datetime default '1992-12-15 00:00:00',
