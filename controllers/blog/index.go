@@ -11,7 +11,7 @@ type IndexController struct {
 
 func (this *IndexController) Get() {
 	var article *models.Article = new(models.Article)
-	articles := article.List()
+	articles := article.List(true)
 	this.Data["articles"] = articles
 	this.TplNames = "index.html"
 }

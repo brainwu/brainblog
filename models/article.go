@@ -97,9 +97,9 @@ func (a *Article) Update(fields ...string) error {
 	return o.Commit()
 }
 
-func (a *Article) List() []Article {
+func (a *Article) List(desc bool) []Article {
 	var articles []Article
-	orm.NewOrm().QueryTable(a).All(&articles)
+	orm.NewOrm().QueryTable(a).OrderBy("-CreateTime").All(&articles)
 	return articles
 }
 
