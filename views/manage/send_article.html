@@ -6,7 +6,7 @@
         {{.errMsg}}
     </div>
     {{end}}
-    <form action="/manage/article" method="post">
+    <form action="/manage/article" method="post" onsubmit="post()">
         <div class="input-group " style="width: 600px;">
             <span class="input-group-addon" style="width: 100px;">标题</span>
             <input id="title" name="title" type="text" class="form-control"/>
@@ -28,16 +28,17 @@
 <script type="text/javascript" charset="utf-8" src="../static/ueditor/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript">
     var ue = UE.getEditor('editor');
-//    function post() {
-//        var sContent = UE.getEditor('editor').getContent();
-//        var sTitle = document.getElementById('title').value;
-//        if (sTitle.length == 0) {
-//            alert("标题不能为空");
-//            return;
-//        }
-//        if (sContent.length == 0) {
-//            alert("内容不能为空");
-//            return;
-//        }
-//    }
+
+    function post() {
+        var sContent = UE.getEditor('editor').getContent();
+        var sTitle = document.getElementById('title').value;
+        if (sTitle.length == 0) {
+            alert("标题不能为空");
+            return;
+        }
+        if (sContent.length == 0) {
+            alert("内容不能为空");
+            return;
+        }
+    }
 </script>
